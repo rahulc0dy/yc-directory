@@ -1,20 +1,20 @@
 import { defineField, defineType } from "sanity";
 
-export const author = defineType({
+export const startup = defineType({
   name: "startup",
   title: "Startup",
   type: "document",
   fields: [
+    defineField({
+      name: "title",
+      type: "string",
+    }),
     defineField({
       name: "slug",
       type: "slug",
       options: {
         source: "title",
       },
-    }),
-    defineField({
-      name: "title",
-      type: "string",
     }),
     defineField({
       name: "author",
@@ -33,7 +33,7 @@ export const author = defineType({
       name: "category",
       type: "string",
       validation: (Rule) =>
-        Rule.min(1).required().max(20).error("Please enter a category."),
+        Rule.min(1).max(20).required().error("Please enter a category"),
     }),
     defineField({
       name: "image",
@@ -45,9 +45,4 @@ export const author = defineType({
       type: "markdown",
     }),
   ],
-  preview: {
-    select: {
-      title: "name",
-    },
-  },
 });
