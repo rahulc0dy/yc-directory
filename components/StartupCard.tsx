@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { cn, formatDate } from "@/lib/utils";
 import { EyeIcon } from "lucide-react";
@@ -18,7 +20,7 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
     category,
     _id,
     image,
-    description,
+    description
   } = post;
   return (
     <li className="startup-card group">
