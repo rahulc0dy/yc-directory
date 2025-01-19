@@ -1,9 +1,6 @@
 import React, { Suspense } from "react";
 import { client } from "@/sanity/lib/client";
-import {
-  PLAYLIST_BY_SLUG_QUERY,
-  STARTUP_BY_ID_QUERY,
-} from "@/sanity/lib/queries";
+import { PLAYLIST_BY_SLUG_QUERY, STARTUP_BY_ID_QUERY } from "@/sanity/lib/queries";
 import { notFound } from "next/navigation";
 import { formatDate } from "@/lib/utils";
 import Link from "next/link";
@@ -22,8 +19,8 @@ const StartupPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const [post, { select: editorPosts }] = await Promise.all([
     client.fetch(STARTUP_BY_ID_QUERY, { id }),
     client.fetch(PLAYLIST_BY_SLUG_QUERY, {
-      slug: "editor-picks",
-    }),
+      slug: "editor-picks-new"
+    })
   ]);
 
   if (!post) return notFound();
